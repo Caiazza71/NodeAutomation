@@ -1,0 +1,136 @@
+#***********************************************************************
+#                SATSA NODE GENERATION INPUT FORMAT FILE  
+#       
+#        -------------------------------------------------------
+#      
+# Node Name:
+#   Name given to the ROS2 node file structure being generated
+#
+#   Example: NodeName= "MyNameIsNode" (no spaces allowed)
+#        -------------------------------------------------------
+-
+      
+NodeName= "Default"
+
+-
+#        -------------------------------------------------------
+# Messages:
+#   This section of the document is the majority of the changes
+#   that will be modified by the user. Below is an example of what
+#   one of these messages will look like. If this file is unmodified
+#   from the original default version there are multiple versions of
+#   the message text format included. For each message type there
+#   will be a MessageName variable and a MessageContents section.
+#   In Message Contents every variable will need to be defined with
+#   a type (in the example it is float64) and a name that the 
+#   node will be expecting (in the example it is tau_ctrl1)
+#
+#   Note: Do not include the file name on the end, This will be 
+#         appended automatically when it creates the files.
+#
+#   Useful Data Types:
+#    ______________________________________________________________
+#   |    Type     |                Explaination                    |
+#   |_____________|________________________________________________|
+#   | float64     | 64 bit integer values                          |
+#   |_____________|________________________________________________|
+#   | string      | Either unbounded or bounded by using string[X] |
+#   |_____________|________________________________________________|
+#   | int32       | 32 Bit integer value                           |
+#   |_____________|________________________________________________|
+#   | float64[]   | Unbounded Array (not type dependent)           |
+#   |_____________|________________________________________________|
+#
+#   Using Types to Declare Message Data:
+#       Type    Name    DefaultValue(optional)
+#       float64 myFloat 12.0
+#   
+#   Example of a Message Declaration: 
+#   MessageName= "CloseMsg"
+#   MessageContents={
+#       float64 tau_ctrl1,
+#       float64 tau_ctrl2,
+#       float64 tau_ctrl3,
+#   }
+#
+#        -------------------------------------------------------
+-
+
+MessageName= "CloseMsg"
+MessageContents={
+    float64 tau_ctrl1,
+    float64 tau_ctrl2,
+    float64 tau_ctrl3,
+}
+
+MessageName= "DesState"
+MessageContents={
+    float64 omega_b1_d
+    float64 omega_b2_d
+    float64 omega_b3_d
+    float64 q_i2b0_d
+    float64 q_i2b1_d
+    float64 q_i2b2_d
+    float64 q_i2b3_d
+    float64 omega_d1_dot
+    float64 omega_d2_dot
+    float64 omega_d3_dot
+}
+
+MessageName= "Quats"
+MessageContents={
+    float64 q_i2b0
+    float64 q_i2b1
+    float64 q_i2b2
+    float64 q_i2b3
+}
+
+MessageName= "SatConfig"
+MessageContents={
+    float64 i11
+    float64 i12
+    float64 i13
+    float64 i21
+    float64 i22
+    float64 i23
+    float64 i31
+    float64 i32
+    float64 i33
+    float64 j_wheel
+    float64 rws_config11
+    float64 rws_config12
+    float64 rws_config13
+    float64 rws_config14
+    float64 rws_config21
+    float64 rws_config22
+    float64 rws_config23
+    float64 rws_config24
+    float64 rws_config31
+    float64 rws_config32
+    float64 rws_config33
+    float64 rws_config34
+    float64 enable_ctrl
+}
+
+MessageName= "SatState"
+MessageContents={
+    float64 omega_b1
+    float64 omega_b2
+    float64 omega_b3
+    float64 r_i1
+    float64 r_i2
+    float64 r_i3
+    float64 v_i1
+    float64 v_i2
+    float64 v_i3
+    float64 rws_ang_vel1
+    float64 rws_ang_vel2
+    float64 rws_ang_vel3
+    float64 rws_ang_vel4
+}
+
+-
+#        -------------------------------------------------------
+#
+#***********************************************************************
+# EOF
