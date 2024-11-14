@@ -6,13 +6,13 @@ from message import Message
 # specified by the 
 class GenerationData:
     #DEBUG Global
-    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, True, False
+    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, False, False
 
     # Class variables
     __nodeName, __messages = "None", []       
     
     # getting file in and breaking into different parsing modes
-    def __init__ (self, fileName):
+    def __init__ (self, fileName, debug):
         if self.INFO_OUT: print("INFO: Starting Parsing") # debug
         
         #File Object Creation
@@ -20,6 +20,8 @@ class GenerationData:
         
         # Reading the File and stripping out useful parts we want
         self.__getNodeName(); self.__createMessages()
+        
+        self. INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE = debug[0], debug[1], debug[2]
         
     # Pulling in the NodeName
     def __getNodeName(self):
@@ -31,7 +33,7 @@ class GenerationData:
                     exitChar += 1
                     if exitChar == 2: break
         
-        if self.DEBUG_BASIC: print("DEBUG: Node Name Found:", self.__nodeName) # debug
+        if self.DEBUG_BASIC: print("DEBUG: NodeName Found:", self.__nodeName) # debug
     
     # Gets the types of a message and appends them to the sent object
     def __getMessageTypes(self, message):
@@ -71,4 +73,4 @@ class GenerationData:
     def getNodeName(self): return self.__NodeName
 
 
-if (__name__=="__main__"): GenerationData("input.satsa") # for testing with a basic input file
+if (__name__=="__main__"): GenerationData("input.satsa", (True, False, False)) # for testing with a basic input file
