@@ -6,7 +6,7 @@ from message import Message
 # specified by the 
 class GenerationData:
     #DEBUG Global
-    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, False, False
+    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, True, False
 
     # Class variables
     __nodeName, __messages = "None", []       
@@ -41,12 +41,13 @@ class GenerationData:
                 exitChar += 1
                 if exitChar == 2: break
                 
-            if line.__contains__("MessageType="): message.setPubSub(line[14:-1]) # Finding the type "Publish" or "Subscribe"
+            elif line.__contains__("MessageType="): message.setPubSub(line[14:-2]) # Finding the type "Publish" or "Subscribe"
                 
             else: message.addType(line.strip().split()) # adding the type and name to the message object
                 
         if self.DEBUG_BASIC: print("DEBUG: Found Message:", message.getName(), "with", len(message.getTypes()), "Types and method", message.getPubSub()) # debug
-        if self.DEBUG_VERBOSE: print("DEBUG: Address:", id(message), "\nDEBUG: Types:", message.getTypes())             # debug
+        if self.DEBUG_VERBOSE: print("DEBUG: Memory Address:", id(message), "\nDEBUG: Types:", message.getTypes())             # debug
+        
         return message
     
     # Creating a message type once a new message name is found
@@ -66,11 +67,8 @@ class GenerationData:
         return
     
     # Public getters
-    def getMessageNames(self): return self.__messages
+    def getMessages(self): return self.__messages
     def getNodeName(self): return self.__NodeName
-    def getMessages(self): return "WIP FUNCTION"
-        
 
 
-if (__name__=="__main__"):
-    GenerationData("input.satsa")
+if (__name__=="__main__"): GenerationData("input.satsa") # for testing with a basic input file
