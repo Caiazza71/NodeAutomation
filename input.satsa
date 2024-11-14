@@ -1,3 +1,5 @@
+!!!! add a flag for publish or subscribe for message
+
 #***********************************************************************
 #                SATSA NODE GENERATION INPUT FORMAT FILE  
 #       
@@ -30,7 +32,7 @@ NodeName= "Default"
 #
 #   Useful Data Types:
 #    ______________________________________________________________
-#   |    Type     |                Explaination                    |
+#   |    Type     |                Explanation                    |
 #   |_____________|________________________________________________|
 #   | float64     | 64 bit integer values                          |
 #   |_____________|________________________________________________|
@@ -48,22 +50,24 @@ NodeName= "Default"
 #   Example of a Message Declaration: 
 #   MessageName= "CloseMsg"
 #   MessageContents={
-#       float64 tau_ctrl1,
-#       float64 tau_ctrl2,
-#       float64 tau_ctrl3,
+#       float64 tau_ctrl1
+#       float64 tau_ctrl2
+#       float64 tau_ctrl3
 #   }
 #
 #        -------------------------------------------------------
 -
 
 MessageName= "CloseMsg"
+MessageType= "Publish"
 MessageContents={
-    float64 tau_ctrl1,
-    float64 tau_ctrl2,
-    float64 tau_ctrl3,
+    float64 tau_ctrl1
+    float64 tau_ctrl2
+    float64 tau_ctrl3
 }
 
 MessageName= "DesState"
+MessageType= "Subscribe"
 MessageContents={
     float64 omega_b1_d
     float64 omega_b2_d
@@ -78,6 +82,7 @@ MessageContents={
 }
 
 MessageName= "Quats"
+MessageType= "Subscribe"
 MessageContents={
     float64 q_i2b0
     float64 q_i2b1
@@ -86,6 +91,7 @@ MessageContents={
 }
 
 MessageName= "SatConfig"
+MessageType= "Subscribe"
 MessageContents={
     float64 i11
     float64 i12
@@ -113,6 +119,7 @@ MessageContents={
 }
 
 MessageName= "SatState"
+MessageType= "Subscribe"
 MessageContents={
     float64 omega_b1
     float64 omega_b2
