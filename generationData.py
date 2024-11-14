@@ -6,15 +6,14 @@ from message import Message
 # specified by the 
 class GenerationData:
     #DEBUG Global
-    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, True, False
-    
-    
+    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, False, False
+
     # Class variables
     __nodeName, __messages = "None", []       
     
     # getting file in and breaking into different parsing modes
     def __init__ (self, fileName):
-        if self.DEBUG_BASIC: print("DEBUG: Starting Parsing") # debug
+        if self.INFO_OUT: print("INFO: Starting Parsing") # debug
         
         #File Object Creation
         self.file = open(fileName, "r")
