@@ -1,4 +1,5 @@
-from message import Message
+from generationTools import Message
+from generationTools import dPrint
 
 # TODO:
 #   - add functionality for array type parameters
@@ -16,7 +17,7 @@ class GenerationData:
     # getting file in and breaking into different parsing modes
     def __init__ (self, fileName, debug):
         self. INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE = debug[0], debug[1], debug[2]
-        if self.INFO_OUT: print("INFO: Starting Parsing") # debug
+        dPrint(self.INFO_OUT,"INFO: Starting Parsing") # debug
         
         #File Object Creation
         self.file = open(fileName, "r")
@@ -34,7 +35,7 @@ class GenerationData:
                     exitChar += 1
                     if exitChar == 2: break
         
-        if self.DEBUG_BASIC: print("DEBUG: NodeName Found:", self.__nodeName) # debug
+        dPrint(self.DEBUG_BASIC,f"DEBUG: NodeName Found: {self.__nodeName}") # debug
     
     # Gets the types of a message and appends them to the sent object
     def __getMessageTypes(self, message):
@@ -48,8 +49,8 @@ class GenerationData:
                 
             else: message.addType(line.strip().split()) # adding the type and name to the message object
                 
-        if self.DEBUG_BASIC: print("DEBUG: Found Message:", message.getName(), "with", len(message.getTypes()), "Types and method", message.getPubSub()) # debug
-        if self.DEBUG_VERBOSE: print("DEBUG: Memory Address:", id(message), "\nDEBUG: Types:", message.getTypes())             # debug
+        dPrint(self.DEBUG_BASIC, f"DEBUG: Found Message: {message.getName()} with {len(message.getTypes())} types and method {message.getPubSub()}.") # debug
+        dPrint(self.DEBUG_VERBOSE, f"DEBUG: Memory Address: {id(message)}\nDEBUG: Types: {message.getTypes()}") # debug
         
         return message
     
@@ -66,7 +67,7 @@ class GenerationData:
                     
                 # * redundency could be added here: if a wrong char is found throws error
         
-        if self.INFO_OUT: print("INFO: Messages Found:", self.__messages) # debug
+        dPrint(self.INFO_OUT,f"INFO: Messages Found: {self.__messages}") # debug
         return
     
     # Public getters

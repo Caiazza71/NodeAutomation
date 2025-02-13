@@ -1,3 +1,12 @@
+# File for holding all development tools and smaller functions for NodeGeneration
+
+from os import mkdir
+
+
+# Debug Print that simplifies debug code when printing to console
+def dPrint(boolean,statement):
+    if boolean: print(statement)
+    
 # class for managing messages as objects for easier access 
 
 class Message:
