@@ -70,7 +70,7 @@ class GenerationData:
     
     # Public getters
     def getMessages(self): return self.__messages
-    def getNodeName(self): return self.__NodeName
+    def getNodeName(self): return self.__nodeName
 
 
 if (__name__=="__main__"): GenerationData("input.satsa", (True, False, False)) # for testing with a basic input file

@@ -15,7 +15,8 @@ class NodeGeneration:
         # ERROR if they use both debugs
         # Error if the use an incorrect arg and maybe call sendHelp()
         
-        return False # false means it fails and args not valid
+        # return False # false means it fails and args not valid
+        return True # setting true for testing purposes
     
     def __sendHelp():
         print("help users by printing the args and explainations")
@@ -33,7 +34,9 @@ class NodeGeneration:
                  
         if not self.__inputFile(fileName): return # Allows for program exit if no file found
                  
-        inputData = GenerationData(self.file,(self.INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE))
+        self.inputData = GenerationData(self.file,(self.INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE))
+        self.__generateMessageFiles()
+        
     
     # function for dynamic allocation
     def __inputFile(self, name):
@@ -52,9 +55,14 @@ class NodeGeneration:
     def __generateSetupFiles():
         pass
     
-    def __generateMessageFiles():
-        pass
-    
+    def __generateMessageFiles(self): # update once dir structure is built
+        messagelist = self.inputData.getMessages() # saving messages in list
+        for message in messagelist:
+            filename = message.getName() + '.msg' # creating .msg filename based off message names
+            with open(filename, "w") as file:
+                for item in message.getTypes():
+                    file.write(item[0] + ' ' + item[1] + "\n") # creating .msg file with inputted types
+
     def __generatePythonFiles():
         # this will def need broken up, basic for pseudo code
         pass
