@@ -1,18 +1,21 @@
 from message import Message
 
-
+# TODO:
+#   - add functionality for array type parameters
+#   - add logic to message.py for array types
 
 # This Class aims to be instantiated with a file name that follows the .satsa format 
 # specified by the 
 class GenerationData:
     #DEBUG Global
-    INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, False, False
+    #INFO_OUT, DEBUG_BASIC, DEBUG_VERBOSE = True, True, False
 
     # Class variables
     __nodeName, __messages = "None", []       
     
     # getting file in and breaking into different parsing modes
     def __init__ (self, fileName, debug):
+        self. INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE = debug[0], debug[1], debug[2]
         if self.INFO_OUT: print("INFO: Starting Parsing") # debug
         
         #File Object Creation
@@ -20,8 +23,6 @@ class GenerationData:
         
         # Reading the File and stripping out useful parts we want
         self.__getNodeName(); self.__createMessages()
-        
-        self. INFO_OUT, self.DEBUG_BASIC, self.DEBUG_VERBOSE = debug[0], debug[1], debug[2]
         
     # Pulling in the NodeName
     def __getNodeName(self):
@@ -70,7 +71,7 @@ class GenerationData:
     
     # Public getters
     def getMessages(self): return self.__messages
-    def getNodeName(self): return self.__NodeName
+    def getNodeName(self): return self.__nodeName
 
 
-if (__name__=="__main__"): GenerationData("input.satsa", (True, False, False)) # for testing with a basic input file
+if (__name__=="__main__"): GenerationData("input.satsa", (True, True, False)) # for testing with a basic input file
