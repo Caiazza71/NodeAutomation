@@ -1,10 +1,10 @@
-!!!! add a flag for publish or subscribe for message
-
 #***********************************************************************
 #                SATSA NODE GENERATION INPUT FORMAT FILE  
 #       
 #        -------------------------------------------------------
 #      
+#               ONLY EDIT TEXT WITHIN THE "-" CHARACTERS
+#
 # Node Name:
 #   Name given to the ROS2 node file structure being generated
 #
@@ -32,7 +32,7 @@ NodeName= "Default"
 #
 #   Useful Data Types:
 #    ______________________________________________________________
-#   |    Type     |                Explanation                    |
+#   |    Type     |                Explanation                     |
 #   |_____________|________________________________________________|
 #   | float64     | 64 bit integer values                          |
 #   |_____________|________________________________________________|
