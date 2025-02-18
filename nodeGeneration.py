@@ -14,6 +14,7 @@ from os              import mkdir
 
 #* Notes
     #* removing any nodes with the same name before execution could save the problem of the program not overwriting the zip archive if one exists
+    #* Needs error checking on the file opening sequence or at least checking it exists
 
 class NodeGeneration:
     ## ---------------  DEBUG & Global  -----------------
@@ -59,7 +60,6 @@ class NodeGeneration:
                         
                 case default: print(f"ERROR: Invalid Argument \"{arg[i]}\" found, use -h or --help for correct argument types"); return # Exit Program
             
-            
         dPrint(self.DEBUG_BASIC,"DEBUG: All Args Processed");       
              
         if not self.__inputFile(fileName): return # program exit if no file found
@@ -73,7 +73,6 @@ class NodeGeneration:
     
     
     # function for dynamic allocation
-    
     #! FUNCTION INCOMPLETE
     
     def __inputFile(self, name):
