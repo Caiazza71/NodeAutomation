@@ -6,13 +6,15 @@
 #               ONLY EDIT TEXT WITHIN THE "-" CHARACTERS
 #
 # Node Name:
-#   Name given to the ROS2 node file structure being generated
+#   Name given to the ROS2 node file structure being generated. If 
+#   you are generating multiple nodes, make sure each node has a
+#   unique name to ensure files are not overridden or changed.
 #
 #   Example: NodeName= "MyNameIsNode" (no spaces allowed)
 #        -------------------------------------------------------
 -
       
-NodeName= "Default"
+NodeName= "NewNode"
 
 -
 #        -------------------------------------------------------
